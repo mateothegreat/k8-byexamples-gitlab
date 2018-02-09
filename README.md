@@ -39,7 +39,11 @@ Open your browser to http://gitlab/ (make take a few minutes for gitlab to boot 
 ## Install
 
 ```sh
+$ make install NS=default GITLAB_ROOT_PASSWORD=changeme
 
+[ INSTALLING MANIFESTS/DEPLOYMENT.YAML ]: deployment "gitlab" created
+[ INSTALLING MANIFESTS/PERSISTENTVOLUMECLAIM.YAML ]: persistentvolumeclaim "gitlab-persistent-storage" created
+[ INSTALLING MANIFESTS/SERVICE.YAML ]: service "gitlab" created
 ```
 
 ## Delete
