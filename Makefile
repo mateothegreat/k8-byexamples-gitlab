@@ -7,6 +7,14 @@
 #
 include .make/Makefile.inc
 
-NS              ?= default
-APP             ?= app
+NS                      ?= default
+APP                     ?= app
+TIMEZONE                ?= America/Chicago
+GITLAB_TIMEZONE         ?= Chicago
+GITLAB_ROOT_PASSWORD    ?= changeme
+GITLAB_ROOT_EMAIL       ?= root@email.com
+GITLAB_HOST             ?= gitlab.default.cluster.local
+GITLAB_PORT             ?= 80
+GITLAB_SSH_HOST         ?= gitlab.default.cluster.local
+GITLAB_SSH_PORT         ?= 22
 export
