@@ -8,7 +8,7 @@
 include .make/Makefile.inc
 
 NS                      ?= default
-APP                     ?= app
+APP                     ?= gitlab
 TIMEZONE                ?= America/Chicago
 GITLAB_TIMEZONE         ?= Chicago
 GITLAB_ROOT_PASSWORD    ?= changeme

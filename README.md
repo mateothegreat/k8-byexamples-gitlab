@@ -14,3 +14,40 @@
 #
 
 > k8 by example -- straight to the point, simple execution.
+
+## Usage
+
+```sh
+$ make help
+
+Usage:
+
+  make <target>
+
+Targets:
+
+  manifests            Output manifests detected (used with make install, delete, get, describe, etc)
+  install              Installs manifests to kubernetes using kubectl apply (make manifests to see what will be installed)
+  delete               Deletes manifests to kubernetes using kubectl delete (make manifests to see what will be installed)
+  get                  Retrieves manifests to kubernetes using kubectl get (make manifests to see what will be installed)
+  describe             Describes manifests to kubernetes using kubectl describe (make manifests to see what will be installed)
+  logs                 Find first pod and follow log output
+```
+
+Open your browser to http://gitlab/ (make take a few minutes for gitlab to boot up).
+
+## Install
+
+```sh
+
+```
+
+## Delete
+
+```sh
+$ make delete
+
+[ DELETING MANIFESTS/DEPLOYMENT.YAML ]: deployment "gitlab" deleted
+[ DELETING MANIFESTS/PERSISTENTVOLUMECLAIM.YAML ]: persistentvolumeclaim "gitlab-persistent-storage" deleted
+[ DELETING MANIFESTS/SERVICE.YAML ]: service "gitlab" deleted
+```
