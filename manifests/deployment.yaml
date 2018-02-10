@@ -53,18 +53,18 @@ spec:
         - name: GITLAB_BACKUP_TIME
           value: 01:00
 
-        - name: DB_TYPE
-          value: postgres
-        - name: DB_HOST
-          value: gitlab-postgresql
-        - name: DB_PORT
-          value: "5432"
-        - name: DB_USER
-          value: gitlab
-        - name: DB_PASS
-          value: +BP52QIxpT/flVCMpL3KXA==
-        - name: DB_NAME
-          value: gitlab_production
+        - name: GITLAB_DATABASE_ADAPTER
+          value: "$GITLAB_DATABASE_ADAPTER"
+        - name: GITLAB_DATABASE_HOST
+          value: "$GITLAB_DATABASE_HOST"
+        - name: GITLAB_DATABASE_PORT
+          value: "$GITLAB_DATABASE_PORT"
+        - name: GITLAB_DATABASE_USERNAME
+          value: "$GITLAB_DATABASE_USERNAME"
+        - name: GITLAB_DATABASE_PASSWORD
+          value: "$GITLAB_DATABASE_PASSWORD"
+        - name: GITLAB_DATABASE_DATABASE
+          value: "$GITLAB_DATABASE_DATABASE"
 
         - name: REDIS_HOST
           value: gitlab-redis
@@ -121,9 +121,13 @@ spec:
           initialDelaySeconds: 15
           timeoutSeconds: 1
         volumeMounts:
+          - mountPath: /etc/gitlab
+            name: gitlab-persistent-storage
+          - mountPath: /var/opt/gitlab
+            name: gitlab-persistent-storage
           - mountPath: /home/git/data
-            name: grafana-persistent-storage
+            name: gitlab-persistent-storage
       volumes:
-      - name: grafana-persistent-storage
+      - name: gitlab-persistent-storage
         persistentVolumeClaim:
-          claimName: grafana-persistent-storage
+          claimName: gitlab-persistent-storage
