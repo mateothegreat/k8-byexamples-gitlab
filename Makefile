@@ -26,3 +26,13 @@ GITLAB_DATABASE_HOST        ?= mysql.default.svc.cluster.local
 GITLAB_DATABASE_PORT        ?= 3306
 
 export
+
+install: 	initdb 
+
+## Create mysql database & grant (DROP DATABASE is performed!)
+initdb:	
+
+	mysql -h $(GITLAB_DATABASE_HOST) -uroot -pmysql -e "CREATE DATABASE IF NOT EXISTS \`$(GITLAB_DATABASE_DATABASE)\`"
+	mysql -h $(GITLAB_DATABASE_HOST) -uroot -pmysql -e "GRANT ALL PRIVILEGES ON \`$(GITLAB_DATABASE_DATABASE)\`.* TO '$(GITLAB_DATABASE_USERNAME)'@'10.%' IDENTIFIED BY '$(GITLAB_DATABASE_PASSWORD)'"
+
+dropdb: ; mysql -h $(GITLAB_DATABASE_HOST) -uroot -pmysql -e "DROP DATABASE IF EXISTS \`$(GITLAB_DATABASE_DATABASE)\`" | true
