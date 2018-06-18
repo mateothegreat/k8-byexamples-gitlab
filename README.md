@@ -14,6 +14,15 @@
 #
 
 > k8 by example -- straight to the point, simple execution.
+## First thing is first
+
+Clone this repo & initialize the submodule (my awesomely simple .make library):
+
+```sh
+git clone https://github.com/mateothegreat/k8-byexamples-gitlab
+cd k8-byexamples-gitlab
+git submodule update --init
+```
 
 ## Usage
 
